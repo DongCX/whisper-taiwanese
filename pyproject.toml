@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "whisper-taiwanese"
+version = "0.1.0"
+description = "CLI for Taiwanese ASR and subtitle generation from local video or audio files"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy>=1.24.0",
+  "torch>=2.5.0",
+  "transformers>=4.45.0",
+]
+
+[project.scripts]
+taiwanese-transcribe = "whisper_taiwanese.cli:main"
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
