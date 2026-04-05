@@ -73,12 +73,6 @@ uv run taiwanese-transcribe /path/to/media-folder --output-dir outputs/batch
 
 ## Makefile flow
 
-安裝依賴：
-
-```bash
-make sync
-```
-
 跑測試：
 
 ```bash
