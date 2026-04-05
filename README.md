@@ -6,7 +6,7 @@
 - 以 Whisper 相容的台語 ASR 模型產生逐字稿
 - 輸出 `.txt`、`.json`、`.srt`、`.vtt`
 
-目前支援單檔與整個資料夾的批次處理，預設模型是 `tw-mandarin`。
+目前支援單檔與整個資料夾的批次處理，預設 preset 是 `tw-mandarin`（`MediaTek-Research/Breeze-ASR-25`）。
 
 ## Requirements
 
@@ -22,7 +22,7 @@
 uv sync --python 3.12
 ```
 
-第一次執行會從 Hugging Face 下載模型，所以需要網路。
+第一次執行會從 Hugging Face 下載模型，所以需要網路。模型檔案不小（`tw-mandarin` 與 `balanced` 約數 GB），請預留足夠磁碟空間與下載時間。快取預設放在 `~/.cache/huggingface/hub/`。
 
 ## Usage
 
@@ -154,3 +154,15 @@ make help
 ```bash
 uv run taiwanese-transcribe --help
 ```
+
+## License
+
+本專案原始碼以 MIT License 釋出，詳見 [`LICENSE`](LICENSE)。
+
+注意：本專案本身不包含任何模型權重，執行時會從 Hugging Face 下載第三方模型，各自有獨立授權：
+
+- `MediaTek-Research/Breeze-ASR-25`：Apache-2.0
+- `openai/whisper-large-v3-turbo`：MIT
+- `NUTN-KWS/Whisper-Taiwanese-model-v0.5`：CC BY-NC 4.0（**非商用**）
+
+商用情境請避開 `nutn-v0.5` preset，或改用其他授權相容的模型。
